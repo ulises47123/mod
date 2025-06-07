@@ -19,17 +19,13 @@ jobs:
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          # Importante: Le decimos que la salida se llame snake.svg
-          outputs: snake.svg 
+          outputs: snake.svg
 
       - name: Push snake.svg
         uses: crazy-max/ghaction-github-pages@v3
         with:
-          # Apuntamos a la rama 'main'
           target_branch: main
-          # Le decimos que la carpeta a subir es la raíz (donde está snake.svg)
           build_dir: .
-          # Mantenemos los otros archivos que ya existen
           keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
